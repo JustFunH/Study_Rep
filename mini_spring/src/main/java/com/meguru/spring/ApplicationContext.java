@@ -111,6 +111,12 @@ public class ApplicationContext {
         return bean;
     }
 
+    /**
+     * 声明周期
+     *
+     * @param bean
+     * @param beanDefinition
+     */
     private Object initializeBean(Object bean, BeanDefinition beanDefinition) throws InvocationTargetException, IllegalAccessException {
         for (BeanPostProcessor postProcessor : postProcessors) {
             bean = postProcessor.beforeInitializeBean(bean, beanDefinition.getName());
