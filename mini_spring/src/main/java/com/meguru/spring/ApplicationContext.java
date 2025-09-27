@@ -39,7 +39,7 @@ public class ApplicationContext {
      */
     public void initContext(String packageName) throws IOException {
         // 先构造BeanDefinition, 再实例化Bean
-        scanPackage(packageName).stream().filter(this::scanCreate).forEach(this::wrapper);
+        scanPackage(packageName).stream().filter(this::canCreate).forEach(this::wrapper);
         initBeanPostProcessor();
         beanDefinitionMap.values().forEach(this::createBean);
     }
@@ -61,7 +61,7 @@ public class ApplicationContext {
      * @param type
      * @return
      */
-    protected boolean scanCreate(Class<?> type) {
+    protected boolean canCreate(Class<?> type) {
         return type.isAnnotationPresent(Component.class);
     }
 

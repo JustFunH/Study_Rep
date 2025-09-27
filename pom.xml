@@ -12,6 +12,8 @@
         <module>reflection</module>
         <module>stream</module>
         <module>mini_spring</module>
+        <module>mini_mvc</module>
+        <module>design_pattern</module>
     </modules>
 
     <properties>
